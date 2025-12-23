@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'PugArch - Innovative Technology Solutions',
   description: 'Strategic IT partnerships delivering cutting-edge technology solutions for Education, Government, and Industry sectors.',
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

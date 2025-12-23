@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { Linkedin, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
 
 const socialLinks = [
-  { href: '#', icon: <Linkedin size={18} />, label: 'LinkedIn' },
+  { href: 'https://www.linkedin.com/company/pugarch-technology-pvt-ltd/', icon: <Linkedin size={18} />, label: 'LinkedIn' },
   { href: '#', icon: <Twitter size={18} />, label: 'Twitter' },
   { href: '#', icon: <Facebook size={18} />, label: 'Facebook' },
-  { href: '#', icon: <Instagram size={18} />, label: 'Instagram' },
+  { href: 'https://www.instagram.com/pugarchtechnology?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', icon: <Instagram size={18} />, label: 'Instagram' },
   { href: '#', icon: <Mail size={18} />, label: 'Email' },
 ];
 
@@ -55,6 +55,7 @@ export default function Footer() {
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
                     className="w-9 h-9 rounded-sm bg-white/10 flex items-center justify-center text-white hover:bg-purple-500 transition-all duration-300 hover:scale-105"
                     aria-label={social.label}
                   >
@@ -90,8 +91,8 @@ export default function Footer() {
                 L-18 LIG Mahada Colony, Laxman Nagar, Manewada, Nagpur, Maharashtra
               </p>
               <p>
-                <span className="font-medium text-white">Branch Office:</span> Mumbai Off No.128, 1st Floor Raghuleela Mega Mall, 
-                Boraspada Road, Behind Poisar Bus Depot, Kandivali(W), Mumbai-400067, 
+                <span className="font-medium text-white">Branch Office:</span> Mumbai Off No.128, 1st Floor Raghuleela Mega Mall,
+                Boraspada Road, Behind Poisar Bus Depot, Kandivali(W), Mumbai-400067,
                 Maharashtra
               </p>
               <div className="space-y-1">
