@@ -7,11 +7,11 @@ type SpiralingModelProps = {
 };
 
 export default function SpiralingModel({ onLoaded }: SpiralingModelProps) {
-  const { scene } = useGLTF("/models/spiral.glb"); // adjust path to your .glb
+  const { scene } = useGLTF("/models/spiraling.gltf"); // ✅ Correct path to GLTF file
 
   useEffect(() => {
     if (onLoaded) onLoaded();
   }, [onLoaded]);
 
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={1.5} />;
 }

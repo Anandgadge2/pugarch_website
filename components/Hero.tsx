@@ -4,14 +4,20 @@ import dynamic from "next/dynamic";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 
-// ✅ Import Spline dynamically WITHOUT a loading fallback
+// ✅ Import Spline dynamically with loading fallback
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 bg-black flex items-center justify-center">
+      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
+    </div>
+  ),
 }) as any;
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -25,21 +31,44 @@ const Hero = () => {
   return (
     <section className="relative h-screen w-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
       {/* ✅ Spline Loader - Only show this loader animation */}
-      {isMounted && isLoading && (
+      {isMounted && isLoading && !hasError && (
         <div className="absolute inset-0 z-50 flex justify-center items-center bg-black">
-          <Spline scene="https://prod.spline.design/dFaU5JOutgAR1-Hx/scene.splinecode" />
+          <Spline 
+            scene="https://prod.spline.design/dFaU5JOutgAR1-Hx/scene.splinecode"
+            onError={() => {
+              console.warn('Spline loader failed, using fallback');
+              setHasError(true);
+              setIsLoading(false);
+            }}
+          />
+        </div>
+      )}
+
+      {/* Fallback Loader */}
+      {isMounted && isLoading && hasError && (
+        <div className="absolute inset-0 z-50 flex justify-center items-center bg-black">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
         </div>
       )}
 
       {/* ✅ Spline Background - Show after loading */}
-      {isMounted && (
+      {isMounted && !hasError && (
         <div className="absolute inset-0">
           <Spline
             scene="https://prod.spline.design/IKzNUZKoVFM7tr91/scene.splinecode"
             onLoad={() => setIsLoading(false)}
+            onError={() => {
+              console.warn('Spline background failed');
+              setHasError(true);
+            }}
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
+      )}
+
+      {/* Fallback Background */}
+      {hasError && (
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
       )}
 
       {/* ✅ Content */}
