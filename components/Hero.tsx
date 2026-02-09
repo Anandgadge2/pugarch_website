@@ -21,7 +21,7 @@ const Hero = () => {
   return (
     <section className="relative h-screen w-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-black">
       {/* ✅ Premium CSS Loader - Matches Website Theme */}
-      {isMounted && isLoading && (
+      {/* {isMounted && isLoading && (
         <div className="absolute inset-0 z-50 flex flex-col justify-center items-center bg-black">
           <div className="relative w-24 h-24">
             <div className="absolute inset-0 border-4 border-violet-500/20 rounded-full" />
@@ -38,7 +38,7 @@ const Hero = () => {
             Initializing Experience
           </motion.p>
         </div>
-      )}
+      )} */}
 
       {/* ✅ Three.js Background Model - Local GLTF for fast hosting */}
       {isMounted && (

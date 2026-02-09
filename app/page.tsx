@@ -7,7 +7,6 @@ import Hero from "../components/Hero"
 import AboutSection from "../components/AboutSection"
 import ServicesSection from "../components/ServicesSection"
 import Footer from "../components/Footer"
-import Loader from "../components/Loader"
 import { ArrowUp } from "lucide-react"
 import { motion, easeOut } from "framer-motion" // ✅ import easing function
 
@@ -54,22 +53,16 @@ function WhyPugArch() {
 }
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [fadeOut, setFadeOut] = useState(false)
   const [componentsLoaded, setComponentsLoaded] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   // useScrollToHash()
 
   useEffect(() => {
+    // ✅ Mark components as loaded
     const timeout = setTimeout(() => {
-      setFadeOut(true)
-      setTimeout(() => {
-        setIsLoading(false)
-        // ✅ Mark components as loaded
-        setTimeout(() => setComponentsLoaded(true), 100)
-      }, 500)
-    }, 800)
+      setComponentsLoaded(true)
+    }, 100)
     return () => clearTimeout(timeout)
   }, [])
 
@@ -106,109 +99,100 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#000000] text-white overflow-x-hidden">
-      {isLoading ? (
-        <div
-          className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out bg-black z-50 ${fadeOut ? "opacity-0" : "opacity-100"
-            }`}
+      <div className="relative">
+        <Navbar />
+
+        {/* Hero */}
+        <motion.section
+          id="home"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: easeOut }} // ✅ fixed
         >
-          <Loader />
-        </div>
-      ) : (
-        <div className="relative">
-          <Navbar />
+          <Hero />
+        </motion.section>
 
-          {/* Hero */}
-          <motion.section
-            id="home"
-            initial={{ opacity: 0, y: 40 }}
+        {/* Why Section */}
+        {/* <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <WhyPugArch />
+        </motion.div> */}
+
+        {/* About */}
+        <motion.section
+          id="about"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <AboutSection />
+        </motion.section>
+
+        {/* Services */}
+        <motion.section
+          id="services"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <ServicesSection />
+        </motion.section>
+
+        {/* Products */}
+        <motion.section
+          id="products"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <ProductsSection />
+        </motion.section>
+
+        {/* Clients */}
+        <motion.section
+          id="clients"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <ClientsSection />
+        </motion.section>
+
+        {/* Testimonials */}
+        {/* <motion.section
+          id="testimonials"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          <TestimonialsSection />
+        </motion.section> */}
+
+        <Footer />
+
+        {/* Scroll to Top */}
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 p-3 rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-700 transition-all duration-300 z-50"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: easeOut }} // ✅ fixed
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, ease: easeOut }} // ✅ fixed
           >
-            <Hero />
-          </motion.section>
-
-          {/* Why Section */}
-          {/* <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <WhyPugArch />
-          </motion.div> */}
-
-          {/* About */}
-          <motion.section
-            id="about"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <AboutSection />
-          </motion.section>
-
-          {/* Services */}
-          <motion.section
-            id="services"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <ServicesSection />
-          </motion.section>
-
-          {/* Products */}
-          <motion.section
-            id="products"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <ProductsSection />
-          </motion.section>
-
-          {/* Clients */}
-          <motion.section
-            id="clients"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <ClientsSection />
-          </motion.section>
-
-          {/* Testimonials */}
-          {/* <motion.section
-            id="testimonials"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sectionVariants}
-          >
-            <TestimonialsSection />
-          </motion.section> */}
-
-          <Footer />
-
-          {/* Scroll to Top */}
-          {showScrollTop && (
-            <motion.button
-              onClick={scrollToTop}
-              className="fixed bottom-6 right-6 p-3 rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-700 transition-all duration-300 z-50"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ duration: 0.5, ease: easeOut }} // ✅ fixed
-            >
-              <ArrowUp size={20} />
-            </motion.button>
-          )}
-        </div>
-      )}
+            <ArrowUp size={20} />
+          </motion.button>
+        )}
+      </div>
     </div>
   )
 }
