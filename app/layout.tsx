@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Facebook Domain Verification */}
-        <meta name="facebook-domain-verification" content="5rd6l92mi51e6vxvumottcyjoran" />
+        <meta name="facebook-domain-verification" content="5rd6192mi51zle6xvwumottcyjorqn" />
         
         {/* ✅ Preload Spline resources */}
         <link
