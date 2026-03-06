@@ -7,7 +7,7 @@ import { Shield, MessageSquare, Info, Phone, Mail, ExternalLink } from "lucide-r
 // I'll define some local icons or use ones likely available in the project
 
 
-export default function SehajLandingPage() {
+export default function SahajLandingPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Background radial glow */}
@@ -16,17 +16,17 @@ export default function SehajLandingPage() {
       {/* Navigation */}
       <nav className="relative z-10 max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/10">
         <div className="flex items-center gap-4">
-          <img src="/images/logo.svg" alt="Sehaj Logo" className="h-12 w-auto rounded-lg shadow-lg" />
+          <img src="/images/sahaj.png" alt="Sahaj Logo" className="h-12 w-auto rounded-lg shadow-lg" />
           <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white to-violet-400 bg-clip-text text-transparent">
-            Sehaj Helpdesk
+            Sahaj Helpdesk
           </span>
         </div>
-        <div className="hidden md:block text-right">
+        {/* <div className="hidden md:block text-right">
           <div className="text-xs uppercase tracking-widest text-violet-400 font-bold mb-1">
             District Administration
           </div>
           <div className="text-sm font-semibold opacity-80">Collectorate Jharsuguda</div>
-        </div>
+        </div> */}
       </nav>
 
       {/* Hero Section */}
@@ -45,11 +45,11 @@ export default function SehajLandingPage() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter"
         >
-          Sehaj –{" "}
+          Sahaj {" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-violet-300 to-purple-600">
-            Collectorate Jharsuguda
+           <br /> WhatsApp Helpdesk
           </span>
-          <br /> WhatsApp Helpdesk
+         
         </motion.h1>
 
         <motion.p
@@ -58,7 +58,7 @@ export default function SehajLandingPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed"
         >
-          Sehaj is the official WhatsApp helpdesk system implemented for citizen services of <strong>Collectorate Jharsuguda</strong>. 
+          Sahaj is the official WhatsApp helpdesk system implemented for citizen services. 
           The chatbot enables residents to access verified district information, submit grievances, and receive 24/7 assistance through WhatsApp.
         </motion.p>
 
@@ -90,12 +90,12 @@ export default function SehajLandingPage() {
             },
             {
               title: "Submit Grievances",
-              desc: "A seamless way to submit and track grievances. The Sehaj system ensures your concerns reach the Collectorate officials promptly.",
+              desc: "A seamless way to submit and track grievances. The Sahaj system ensures your concerns reach the officials promptly.",
               icon: <MessageSquare className="text-violet-400" size={24} />,
             },
             {
               title: "Verified Assistance",
-              desc: "Receive assistance through an official, verified channel. This platform acts as a digital bridge for the residents of Jharsuguda.",
+              desc: "Receive assistance through an official, verified channel.",
               icon: <Shield className="text-violet-400" size={24} />,
             },
           ].map((feature, i) => (
@@ -131,21 +131,21 @@ export default function SehajLandingPage() {
             <div>
               <div className="mb-8">
                 <span className="text-[10px] font-black tracking-widest text-violet-400 uppercase">Organization Info</span>
-                <h2 className="text-3xl font-bold mt-2 text-white">Collectorate Jharsuguda</h2>
+                <h2 className="text-3xl font-bold mt-2 text-white">PugArch Technology Pvt Ltd</h2>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="p-2 bg-violet-500/10 rounded-lg"><Info size={20} className="text-violet-400" /></div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-300">Office Address</h4>
-                    <p className="text-gray-400 text-sm">District Administration Office, Collectorate, Jharsuguda, Odisha, India – 768204</p>
+                    <p className="text-gray-400 text-sm">PugArch Technology Pvt Ltd, L-18 LIG Mahada Colony, Laxman Nagar, Manewada, Nagpur, Maharashtra</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="p-2 bg-violet-500/10 rounded-lg"><ExternalLink size={20} className="text-violet-400" /></div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-300">Official Website</h4>
-                    <p className="text-gray-400 text-sm"><a href="https://jharsuguda.odisha.gov.in" className="hover:text-white underline">jharsuguda.odisha.gov.in</a></p>
+                    <p className="text-gray-400 text-sm"><a href="https://www.pugarch.in/" className="hover:text-white underline">www.pugarch.in</a></p>
                   </div>
                 </div>
               </div>
@@ -160,14 +160,18 @@ export default function SehajLandingPage() {
                   <div className="p-2 bg-violet-500/10 rounded-lg"><Phone size={20} className="text-violet-400" /></div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-300">Phone Support</h4>
-                    <p className="text-gray-400 text-sm">06645-270070</p>
+                    <p className="text-gray-400 text-sm">8180006916</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-300">Whatsapp Support</h4>
+                    <p className="text-gray-400 text-sm"> 9503670561</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="p-2 bg-violet-500/10 rounded-lg"><Mail size={20} className="text-violet-400" /></div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-300">Email Enquiries</h4>
-                    <p className="text-gray-400 text-sm">dm-jharsuguda@nic.in</p>
+                    <p className="text-gray-400 text-sm">info@pugarch.in</p>
                   </div>
                 </div>
               </div>
@@ -182,12 +186,12 @@ export default function SehajLandingPage() {
           This digital service platform is developed and maintained by <strong>PugArch Technology Pvt Ltd</strong>.
         </p>
         <p className="text-gray-500 text-[10px] uppercase tracking-widest mb-8">
-          &copy; 2026 Collectorate Jharsuguda District Administration. All rights reserved.
+          &copy; 2026 PugArch Technology Pvt Ltd. All rights reserved.
         </p>
         <div className="flex justify-center gap-8 text-xs text-gray-400 font-bold">
           <Link href="/privacy-policy" className="hover:text-white hover:tracking-widest transition-all">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-white hover:tracking-widest transition-all">Terms of Service</Link>
-          <Link href="https://jharsuguda.odisha.gov.in" className="hover:text-white hover:tracking-widest transition-all">Collectorate Website</Link>
+          <Link href="https://pugarch.in" className="hover:text-white hover:tracking-widest transition-all">Website</Link>
         </div>
       </footer>
     </div>
